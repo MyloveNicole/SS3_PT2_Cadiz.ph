@@ -1,0 +1,29 @@
+<h2>Calculate Sum of Squares and Cubes</h2>
+        <form method="post">
+            <input type="Number" name="Number" placeholder="Enter an upper limit" required>
+            <br>
+            <button type="Submit">Calculate</button>
+        </form>
+        
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $n = intval($_POST['Number']);
+            if ($n > 0) {
+                $sumSquares = 0;
+                $sumCubes = 0;
+                
+                for ($i = 1; $i <= $n; $i++) {
+                    $sumSquares += $i * $i;
+                    $sumCubes += $i * $i * $i;
+                }
+                
+                echo "<div class='result'>";
+                echo "<p>The sum of Squares from 1 to $n is <strong>$sumSquares</strong>.</p>";
+                echo "<p>The sum of Cubes from 1 to $n is <strong>$sumCubes</strong>.</p>";
+                echo "</div>";
+            } else {
+                echo "<p style='color: red;'>Please enter a positive integer.</p>";
+            }
+        }
+        ?>
+    </div>
