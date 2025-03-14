@@ -1,11 +1,62 @@
-<h2>Calculate Sum of Squares and Cubes</h2>
+<div class="container">
+    <center>
+<h2>Sum of Squares and Cubes</h2>
         <form method="post">
-            <input type="Number" name="Number" placeholder="Enter an upper limit" required>
+            <input type="Number" name="Number" placeholder="Calculate Sum of Squares and Cubes" required="">
             <br>
             <button type="Submit">Calculate</button>
         </form>
-        
-        <?php
+        <style type="text/css">
+body {
+    background-color:rgb(224, 24, 230);
+}
+
+.container {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    background-color: #1be0e3; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    max-width: 400px; 
+    margin: auto; 
+    
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="number"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+
+<?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $n = intval($_POST['Number']);
             if ($n > 0) {
@@ -26,4 +77,3 @@
             }
         }
         ?>
-    </div>
