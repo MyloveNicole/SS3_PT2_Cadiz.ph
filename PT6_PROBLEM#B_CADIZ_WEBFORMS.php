@@ -10,9 +10,9 @@
             font-family: Arial, sans-serif;
             margin: 20px;
             background: linear-gradient(to right, 
-            red, orange, yellow, green, blue, indigo, violet);
+            red, orange, yellow, green);
             background-size: 400% 400%; 
-            animation: rainbow 10s ease infinite;
+            
         }
         .container {
             max-width: 400px;
@@ -54,6 +54,27 @@
             border: 1px solid #ccc;
             background-color: #f9f9f9;
             border-radius: 4px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 4px;
+            display: block;
+            position: relative; 
+            animation: fadeIn 0.5s; 
+            background: linear-gradient(45deg,rgb(230, 28, 28), #f7d94c,rgb(203, 42, 218), #6bcfdf, #6b6bff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 <body>
