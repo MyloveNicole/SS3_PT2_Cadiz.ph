@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
-</head>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background: linear-gradient(to right, 
-            red, orange, yellow, green);
+            background: linear-gradient(to right, red, orange, yellow, green);
             background-size: 400% 400%; 
-            
         }
         .container {
             max-width: 400px;
@@ -40,20 +37,11 @@
         input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background: linear-gradient(to right, 
-            red, orange, yellow, green, blue, indigo, violet);
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-        
-        .result {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            border-radius: 4px;
         }
         .result {
             margin-top: 20px;
@@ -62,7 +50,7 @@
             display: block;
             position: relative; 
             animation: fadeIn 0.5s; 
-            background: linear-gradient(45deg,rgb(230, 28, 28), #f7d94c,rgb(203, 42, 218), #6bcfdf, #6b6bff);
+            background: linear-gradient(45deg, rgb(230, 28, 28), #f7d94c, rgb(203, 42, 218), #6bcfdf, #6b6bff);
             background-size: 400% 400%;
             animation: gradientAnimation 15s ease infinite;
             color: white;
@@ -77,20 +65,21 @@
             100% { background-position: 0% 50%; }
         }
     </style>
+</head>
 <body>
 <div class="container">
     <h1>BMI Calculator</h1>
     <form method="post" action="">
         <label for="weight">Weight (kg):</label>
         <input type="number" step="0.1" name="weight" id="weight" required>
-        
+
         <label for="height">Height:</label>
         <input type="number" step="0.1" name="height" id="height" required>
         <select name="height_unit" id="height_unit">
             <option value="m">meters (m)</option>
             <option value="cm">centimeters (cm)</option>
         </select>
-        
+
         <input type="submit" value="Calculate BMI">
     </form>
 
@@ -99,18 +88,18 @@
         $weight = $_POST['weight'];
         $height = $_POST['height'];
         $height_unit = $_POST['height_unit'];
-    }
-        
+
+        // Convert height to meters if in centimeters
         if ($height_unit == 'cm') {
             $height = $height / 100;
         }
 
-        
+        // Calculate BMI
         $bmi = $weight / ($height * $height);
         $category = '';
         $risk = '';
 
-        
+        // Determine BMI category and risk
         if ($bmi < 18.5) {
             $category = "Underweight";
             $risk = "Increased risk of nutritional deficiency and osteoporosis.";
@@ -119,7 +108,7 @@
             $risk = "Average.";
         } elseif ($bmi < 29.9) {
             $category = "Overweight";
-            $risk = "Middly Increased.";
+            $risk = "Mildly Increased.";
         } elseif ($bmi < 34.9) {
             $category = "Obesity (Class 1)";
             $risk = "Moderate.";
@@ -131,15 +120,14 @@
             $risk = "Very Severe.";
         }
 
-        
+        // Display results
         echo "<div class='result'>";
         echo "<h2>Your BMI is: " . number_format($bmi, 2) . "</h2>";
         echo "<p>Category: " . $category . "</p>";
         echo "<p>Risk of comorbidities: " . $risk . "</p>";
         echo "</div>";
-    
+    }
     ?>
 </div>
-
 </body>
 </html>
