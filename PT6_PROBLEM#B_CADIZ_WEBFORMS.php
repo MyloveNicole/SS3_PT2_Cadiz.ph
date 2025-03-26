@@ -89,17 +89,17 @@
         $height = $_POST['height'];
         $height_unit = $_POST['height_unit'];
 
-        // Convert height to meters if in centimeters
+        
         if ($height_unit == 'cm') {
             $height = $height / 100;
         }
 
-        // Calculate BMI
+        
         $bmi = $weight / ($height * $height);
         $category = '';
         $risk = '';
 
-        // Determine BMI category and risk
+        
         if ($bmi < 18.5) {
             $category = "Underweight";
             $risk = "Increased risk of nutritional deficiency and osteoporosis.";
@@ -120,7 +120,7 @@
             $risk = "Very Severe.";
         }
 
-        // Display results
+        
         echo "<div class='result'>";
         echo "<h2>Your BMI is: " . number_format($bmi, 2) . "</h2>";
         echo "<p>Category: " . $category . "</p>";
